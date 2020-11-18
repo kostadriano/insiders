@@ -1,6 +1,6 @@
 import React from 'react'
 import httpService from '../../services/httpService'
-
+import { Link } from 'react-router-dom'
 class Books extends React.Component {
   constructor() {
     super()
@@ -36,6 +36,8 @@ class Books extends React.Component {
             )
           }
         </ul>
+
+        <Link to="/new-book">New Book</Link>
       </div>
     )
   }
