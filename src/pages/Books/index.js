@@ -22,6 +22,22 @@ class Books extends React.Component {
       })
   }
 
+  handleDeleteBook = (id) => {
+    console.log(id)
+    httpService.delete(`/books/${id}`)
+      .then(() => {
+        const { books } = this.state
+
+        const updatedBooks = books.filter(
+          book => book.id !== id
+        )
+
+        this.setState({
+          books: updatedBooks
+        })
+      })
+  }
+
   render() {
     const { books } = this.state
 
@@ -32,7 +48,13 @@ class Books extends React.Component {
         <ul>
           {
             books.map(book =>
-              <li key={book.id}>{book.title}</li>
+              <li key={book.id}>
+                {book.title}
+
+                <button onClick={() => this.handleDeleteBook(book.id)}>
+                  DELETE
+                </button>
+              </li>
             )
           }
         </ul>
