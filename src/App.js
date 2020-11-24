@@ -1,5 +1,6 @@
 import Books from './pages/Books'
 import NewBook from './pages/NewBook'
+import UpdateBook from './pages/UpdateBook'
 
 import {
   BrowserRouter as Router,
@@ -12,8 +13,9 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/books" component={Books} />
+          <Route path="/books" exact component={Books} />
           <Route path="/new-book" component={NewBook} />
+          <Route path="/books/:bookId" component={UpdateBook} />
         </Switch>
       </Router>
     </div>
