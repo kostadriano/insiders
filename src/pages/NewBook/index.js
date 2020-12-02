@@ -24,11 +24,6 @@ class NewBook extends Component {
         <h1> New Book </h1>
 
         <BookForm
-          initialValues={{
-            title: "",
-            pages: 0,
-            author: "",
-          }}
           handleSubmit={this.handleSubmit}
         />
       </>

@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Input from '../Input'
 
 const BookForm = ({ initialValues, handleSubmit }) => {
-  const [book, setBook] = React.useState(initialValues)
+  const [book, setBook] = React.useState({
+    title: "",
+    pages: 0,
+    author: "",
+  })
+
+  useEffect(() => {
+    if (initialValues) {
+      setBook({ ...book, ...initialValues })
+    }
+  }, [initialValues])
 
   const handleChange = (event) => {
     const { name, value } = event.target
