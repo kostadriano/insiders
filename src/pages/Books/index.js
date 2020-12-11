@@ -1,7 +1,7 @@
 import React from 'react'
 import httpService from '../../services/httpService'
 import { Link } from 'react-router-dom'
-import { Button } from '@material-ui/core'
+import { Button, Typography } from '@material-ui/core'
 
 class Books extends React.Component {
   constructor() {
@@ -48,7 +48,7 @@ class Books extends React.Component {
           {
             books.map(book =>
               <li key={book.id}>
-                {book.title}
+                <Typography component="span">{book.title}</Typography>
 
                 <Button onClick={() => this.handleDeleteBook(book.id)} variant="outlined" color="secondary">
                   DELETE
