@@ -51,7 +51,7 @@ class Books extends React.Component {
                 <Typography component="span">{book.title}</Typography>
 
                 <Button onClick={() => this.handleDeleteBook(book.id)} variant="outlined" color="secondary">
-                  DELETE
+                  Apagar
                 </Button>
               </li>
             )
