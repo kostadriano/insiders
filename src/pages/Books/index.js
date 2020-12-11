@@ -1,6 +1,8 @@
 import React from 'react'
 import httpService from '../../services/httpService'
 import { Link } from 'react-router-dom'
+import { Button } from '@material-ui/core'
+
 class Books extends React.Component {
   constructor() {
     super()
@@ -13,8 +15,6 @@ class Books extends React.Component {
   componentDidMount() {
     httpService.get('/books')
       .then(({ data }) => {
-        console.log(data)
-
         this.setState({ books: data })
       })
       .catch(error => {
@@ -23,7 +23,6 @@ class Books extends React.Component {
   }
 
   handleDeleteBook = (id) => {
-    console.log(id)
     httpService.delete(`/books/${id}`)
       .then(() => {
         const { books } = this.state
@@ -51,14 +50,13 @@ class Books extends React.Component {
               <li key={book.id}>
                 {book.title}
 
-                <button onClick={() => this.handleDeleteBook(book.id)}>
+                <Button onClick={() => this.handleDeleteBook(book.id)} variant="outlined" color="secondary">
                   DELETE
-                </button>
+                </Button>
               </li>
             )
           }
         </ul>
-
         <Link to="/new-book">New Book</Link>
       </div>
     )
